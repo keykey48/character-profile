@@ -2,191 +2,125 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta
-        name="description"
-        content="캐릭터 프로필"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>캐릭터 프로필</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <main class="profile-card">
-        <header class="profile-title">
-            <p class="eyebrow">CHARACTER PROFILE</p>
-            <h1>캐릭터 프로필</h1>
-            <p class="title-description">한 사람의 이야기를 소개합니다</p>
+        <header class="page-header">
+            <div class="title">
+                <p class="eyebrow">CHARACTER PROFILE</p>
+                <h1>캐릭터 프로필</h1>
+                <p class="subtitle">한 사람의 이야기를 소개합니다</p>
+            </div>
+
+            <div class="toolbar">
+                <button id="editButton" class="button primary" type="button">정보 수정</button>
+                <button id="saveButton" class="button primary" type="button" hidden>저장</button>
+                <button id="cancelButton" class="button secondary" type="button" hidden>취소</button>
+            </div>
         </header>
 
-        <section class="profile-header" aria-labelledby="character-name">
+        <section class="color-settings" aria-label="색상 설정">
+            <strong>페이지 색상</strong>
+            <label>메인 <input type="color" data-color="main" value="#8172c5"></label>
+            <label>서브 <input type="color" data-color="sub" value="#efecfa"></label>
+            <label>배경 <input type="color" data-color="background" value="#f7f6fa"></label>
+            <label>글자 <input type="color" data-color="text" value="#34313e"></label>
+            <button id="resetColors" class="button small" type="button">색상 초기화</button>
+        </section>
+
+        <section class="profile-header">
             <div class="portrait-column">
                 <div class="profile-image">
-                    <img
-                        id="profilePreview"
-                        src="https://placehold.co/600x800/f0ecff/7668b5?text=Character+Photo"
-                        alt="캐릭터 프로필 사진"
-                    >
+                    <img id="profilePreview"
+                         src="https://placehold.co/600x800/f0ecff/7668b5?text=Character+Photo"
+                         alt="캐릭터 프로필 사진">
                 </div>
-
-                <label class="image-upload-button" for="profileImageInput">
-                    <span aria-hidden="true">＋</span>
+                <label class="image-upload-button">
                     프로필 사진 선택
-                    <input
-                        type="file"
-                        id="profileImageInput"
-                        accept="image/*"
-                        hidden
-                    >
+                    <input id="profileImageInput" type="file" accept="image/*" hidden>
                 </label>
-                <p class="upload-help">이미지를 선택하면 이 브라우저에서 미리 볼 수 있어요.</p>
+                <p class="upload-help">사진은 이 브라우저에서 미리 볼 수 있어요.</p>
             </div>
 
             <div class="intro">
                 <p class="section-label">INTRODUCTION</p>
-                <h2 id="character-name">캐릭터 이름</h2>
-                <p class="catchphrase">“캐릭터를 잘 보여주는 한마디를 적어주세요.”</p>
+                <h2 data-editable>캐릭터 이름</h2>
+                <p class="catchphrase" data-editable>“캐릭터를 잘 보여주는 한마디를 적어주세요.”</p>
 
                 <dl class="basic-info">
-                    <div>
-                        <dt>나이</dt>
-                        <dd>20세</dd>
-                    </div>
-                    <div>
-                        <dt>성별</dt>
-                        <dd>여성</dd>
-                    </div>
-                    <div>
-                        <dt>생일</dt>
-                        <dd>3월 14일</dd>
-                    </div>
-                    <div>
-                        <dt>MBTI</dt>
-                        <dd>INFJ</dd>
-                    </div>
-                    <div>
-                        <dt>키</dt>
-                        <dd>165cm</dd>
-                    </div>
-                    <div>
-                        <dt>직업</dt>
-                        <dd>학생</dd>
-                    </div>
+                    <div><dt>나이</dt><dd data-editable>20세</dd></div>
+                    <div><dt>성별</dt><dd data-editable>여성</dd></div>
+                    <div><dt>생일</dt><dd data-editable>3월 14일</dd></div>
+                    <div><dt>MBTI</dt><dd data-editable>INFJ</dd></div>
+                    <div><dt>키</dt><dd data-editable>165cm</dd></div>
+                    <div><dt>직업</dt><dd data-editable>학생</dd></div>
                 </dl>
             </div>
         </section>
 
-        <section class="profile-section" aria-labelledby="private-title">
-            <div class="section-heading">
-                <span class="section-number">01</span>
-                <h2 id="private-title">개인정보</h2>
-            </div>
+        <section class="profile-section">
+            <h2 class="section-heading">01　개인정보</h2>
             <div class="detail-grid">
-                <article class="detail-card">
-                    <h3>이름</h3>
-                    <p>캐릭터의 본명이나 별명을 적어주세요.</p>
-                </article>
-                <article class="detail-card">
-                    <h3>소속</h3>
-                    <p>학교, 회사, 단체 등 소속을 적어주세요.</p>
-                </article>
-                <article class="detail-card">
-                    <h3>거주지</h3>
-                    <p>캐릭터가 살고 있는 곳을 적어주세요.</p>
-                </article>
-                <article class="detail-card">
-                    <h3>가족</h3>
-                    <p>가족이나 함께 지내는 사람을 적어주세요.</p>
-                </article>
+                <article class="detail-card"><h3>이름</h3><p data-editable>캐릭터의 본명이나 별명을 적어주세요.</p></article>
+                <article class="detail-card"><h3>소속</h3><p data-editable>학교, 회사, 단체 등 소속을 적어주세요.</p></article>
+                <article class="detail-card"><h3>거주지</h3><p data-editable>캐릭터가 살고 있는 곳을 적어주세요.</p></article>
+                <article class="detail-card"><h3>가족</h3><p data-editable>가족이나 함께 지내는 사람을 적어주세요.</p></article>
             </div>
         </section>
 
-        <section class="profile-section" aria-labelledby="personality-title">
-            <div class="section-heading">
-                <span class="section-number">02</span>
-                <h2 id="personality-title">성격</h2>
-            </div>
+        <section class="profile-section">
+            <h2 class="section-heading">02　성격</h2>
             <div class="text-panel">
-                <p>
-                    캐릭터의 성격과 행동 방식, 다른 사람을 대하는 태도를 적어주세요.
-                    평소에는 어떤 모습인지, 특별한 상황에서는 어떻게 달라지는지도
-                    소개할 수 있어요.
-                </p>
-                <div class="tag-list" aria-label="성격 키워드">
-                    <span class="tag">차분한</span>
-                    <span class="tag">호기심 많은</span>
-                    <span class="tag">다정한</span>
+                <p data-editable>캐릭터의 성격과 행동 방식, 다른 사람을 대하는 태도를 적어주세요.</p>
+                <div class="tag-list">
+                    <span class="tag" data-editable>차분한</span>
+                    <span class="tag" data-editable>호기심 많은</span>
+                    <span class="tag" data-editable>다정한</span>
                 </div>
             </div>
         </section>
 
-        <section class="profile-section" aria-labelledby="appearance-title">
-            <div class="section-heading">
-                <span class="section-number">03</span>
-                <h2 id="appearance-title">외관 특징</h2>
-            </div>
+        <section class="profile-section">
+            <h2 class="section-heading">03　외관 특징</h2>
             <div class="detail-grid">
-                <article class="detail-card">
-                    <h3>머리</h3>
-                    <p>머리 모양, 색, 자주 하는 스타일을 적어주세요.</p>
-                </article>
-                <article class="detail-card">
-                    <h3>눈</h3>
-                    <p>눈 색이나 인상처럼 눈에 띄는 점을 적어주세요.</p>
-                </article>
-                <article class="detail-card">
-                    <h3>복장</h3>
-                    <p>즐겨 입는 옷이나 대표 의상을 적어주세요.</p>
-                </article>
-                <article class="detail-card">
-                    <h3>특징</h3>
-                    <p>점, 흉터, 액세서리 등 알아보기 쉬운 특징을 적어주세요.</p>
-                </article>
+                <article class="detail-card"><h3>머리</h3><p data-editable>머리 모양, 색, 자주 하는 스타일을 적어주세요.</p></article>
+                <article class="detail-card"><h3>눈</h3><p data-editable>눈 색이나 인상처럼 눈에 띄는 점을 적어주세요.</p></article>
+                <article class="detail-card"><h3>복장</h3><p data-editable>즐겨 입는 옷이나 대표 의상을 적어주세요.</p></article>
+                <article class="detail-card"><h3>특징</h3><p data-editable>점, 흉터, 액세서리 등 알아보기 쉬운 특징을 적어주세요.</p></article>
             </div>
         </section>
 
-        <section class="profile-section" aria-labelledby="important-title">
-            <div class="section-heading">
-                <span class="section-number">04</span>
-                <h2 id="important-title">중요한 특징</h2>
-            </div>
+        <section class="profile-section">
+            <h2 class="section-heading">04　중요한 특징</h2>
             <div class="text-panel">
-                <p>
-                    캐릭터를 이해하는 데 중요한 능력, 습관, 과거의 사건이나
-                    현재의 목표를 적어주세요.
-                </p>
+                <p data-editable>캐릭터를 이해하는 데 중요한 능력, 습관, 과거의 사건이나 현재의 목표를 적어주세요.</p>
             </div>
         </section>
 
         <section class="profile-section likes-dislikes">
-            <div class="list-panel" aria-labelledby="likes-title">
-                <div class="section-heading">
-                    <span class="section-number">05</span>
-                    <h2 id="likes-title">좋아하는 것</h2>
-                </div>
+            <div>
+                <h2 class="section-heading">05　좋아하는 것</h2>
                 <ul>
-                    <li>좋아하는 음식</li>
-                    <li>좋아하는 장소</li>
-                    <li>좋아하는 취미</li>
+                    <li data-editable>좋아하는 음식</li>
+                    <li data-editable>좋아하는 장소</li>
+                    <li data-editable>좋아하는 취미</li>
                 </ul>
             </div>
-
-            <div class="list-panel" aria-labelledby="dislikes-title">
-                <div class="section-heading">
-                    <span class="section-number">06</span>
-                    <h2 id="dislikes-title">싫어하는 것</h2>
-                </div>
+            <div>
+                <h2 class="section-heading">06　싫어하는 것</h2>
                 <ul>
-                    <li>싫어하는 음식</li>
-                    <li>불편해하는 상황</li>
-                    <li>싫어하는 습관</li>
+                    <li data-editable>싫어하는 음식</li>
+                    <li data-editable>불편해하는 상황</li>
+                    <li data-editable>싫어하는 습관</li>
                 </ul>
             </div>
         </section>
 
-        <footer class="profile-footer">
-            <p>CHARACTER PROFILE</p>
-        </footer>
+        <footer>CHARACTER PROFILE</footer>
     </main>
 </body>
 </html>
