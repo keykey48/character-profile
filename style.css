@@ -1,6 +1,17 @@
-/* =========================================================
-   기본 설정
-========================================================= */
+/* ==============================
+   색상과 기본 설정
+============================== */
+
+:root {
+    --main-color: #8172c5;
+    --sub-color: #efecfa;
+    --background-color: #f7f6fa;
+    --card-color: #ffffff;
+    --text-color: #34313e;
+    --sub-text-color: #827e8d;
+    --border-color: #ebe8f1;
+    --soft-accent-color: #faf9fd;
+}
 
 * {
     box-sizing: border-box;
@@ -8,270 +19,331 @@
     padding: 0;
 }
 
-:root {
-    --main-color: #8b7cff;
-    --sub-color: #eeeaff;
-    --background-color: #f6f5fa;
-    --card-color: #ffffff;
-    --text-color: #333333;
-    --sub-text-color: #777777;
-    --border-color: #dddddd;
-}
-
 body {
+    min-height: 100vh;
+    padding: 48px 20px;
+    background: var(--background-color);
+    color: var(--text-color);
     font-family:
         Arial,
         "Noto Sans KR",
+        "Malgun Gothic",
         sans-serif;
-
-    background: var(--background-color);
-    color: var(--text-color);
-
-    min-height: 100vh;
-    padding: 50px 20px;
+    line-height: 1.7;
 }
 
+/* ==============================
+   프로필 카드와 제목
+============================== */
 
-/* =========================================================
-   전체 카드
-========================================================= */
-
-.profile-container {
+.profile-card {
     width: 100%;
-    max-width: 900px;
-
+    max-width: 920px;
     margin: 0 auto;
-
-    padding: 50px;
-
+    padding: 54px 64px 36px;
     background: var(--card-color);
-
-    border: 2px solid var(--main-color);
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 10px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    border-top: 5px solid var(--main-color);
+    border-radius: 22px;
+    box-shadow: 0 18px 55px rgba(48, 39, 77, 0.08);
 }
-
-
-/* =========================================================
-   제목
-========================================================= */
 
 .profile-title {
+    margin-bottom: 42px;
     text-align: center;
+}
 
-    margin-bottom: 45px;
+.eyebrow,
+.section-label {
+    color: var(--main-color);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
 }
 
 .profile-title h1 {
-    color: var(--main-color);
-
-    font-size: 32px;
-
-    letter-spacing: 4px;
-}
-
-.profile-title p {
-    margin-top: 8px;
-
-    color: var(--sub-text-color);
-
-    font-size: 13px;
-
+    margin-top: 5px;
+    font-size: 30px;
     letter-spacing: 2px;
 }
 
+.title-description {
+    margin-top: 5px;
+    color: var(--sub-text-color);
+    font-size: 13px;
+}
 
-/* =========================================================
-   캐릭터 상단
-========================================================= */
+/* ==============================
+   사진과 기본 프로필
+============================== */
 
 .profile-header {
     display: grid;
-
-    grid-template-columns: 260px 1fr;
-
-    gap: 40px;
-
+    grid-template-columns: 260px minmax(0, 1fr);
     align-items: center;
-
-    margin-bottom: 50px;
+    gap: 42px;
+    padding-bottom: 42px;
+    border-bottom: 1px solid var(--border-color);
 }
 
-
-/* =========================================================
-   프로필 이미지
-========================================================= */
+.portrait-column {
+    min-width: 0;
+}
 
 .profile-image {
-    width: 260px;
-    height: 340px;
-
+    width: 100%;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
-
     background: var(--sub-color);
-
-    border: 5px solid var(--main-color);
-
     border-radius: 16px;
 }
 
 .profile-image img {
+    display: block;
     width: 100%;
     height: 100%;
-
     object-fit: cover;
+}
 
+.image-upload-button {
     display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 11px 14px;
+    border: 1px solid var(--main-color);
+    border-radius: 10px;
+    background: var(--main-color);
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
-
-/* =========================================================
-   캐릭터 이름
-========================================================= */
-
-.character-name {
-    margin-bottom: 25px;
+.image-upload-button:hover {
+    background: #7060b5;
 }
 
-.character-name h2 {
-    color: var(--main-color);
-
-    font-size: 36px;
-
-    line-height: 1.2;
+.image-upload-button:active {
+    transform: scale(0.98);
 }
 
-.character-name p {
-    margin-top: 10px;
+.image-upload-button:focus-within {
+    outline: 3px solid rgba(129, 114, 197, 0.3);
+    outline-offset: 3px;
+}
 
+.upload-help {
+    margin-top: 7px;
     color: var(--sub-text-color);
-
-    line-height: 1.6;
+    font-size: 11px;
+    text-align: center;
 }
 
+.intro h2 {
+    margin-top: 5px;
+    font-size: 34px;
+    line-height: 1.3;
+}
 
-/* =========================================================
-   기본 정보
-========================================================= */
+.catchphrase {
+    margin-top: 12px;
+    color: var(--sub-text-color);
+    font-size: 15px;
+}
 
-.info-grid {
+.basic-info {
     display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 12px 25px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 20px;
+    margin-top: 25px;
+    border-top: 1px solid var(--border-color);
 }
 
-.info-item {
-    display: flex;
-
-    padding-bottom: 10px;
-
+.basic-info div {
+    display: grid;
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 8px;
+    padding: 11px 0;
     border-bottom: 1px solid var(--border-color);
 }
 
-.info-label {
-    width: 70px;
-
-    flex-shrink: 0;
-
-    color: var(--main-color);
-
-    font-weight: bold;
+.basic-info dt {
+    color: var(--sub-text-color);
+    font-size: 13px;
 }
 
-.info-value {
-    color: var(--text-color);
+.basic-info dd {
+    font-size: 13px;
+    font-weight: 600;
 }
 
-
-/* =========================================================
-   프로필 섹션
-========================================================= */
+/* ==============================
+   프로필 내용 섹션
+============================== */
 
 .profile-section {
-    margin-top: 38px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.profile-section h3 {
+.section-heading {
     display: flex;
-
     align-items: center;
-
-    gap: 10px;
-
-    margin-bottom: 15px;
-
-    color: var(--main-color);
-
-    font-size: 20px;
+    gap: 11px;
+    margin-bottom: 16px;
 }
 
-.profile-section h3::before {
-    content: "";
-
-    width: 5px;
-    height: 20px;
-
-    display: block;
-
-    background: var(--main-color);
-
-    border-radius: 10px;
-}
-
-.profile-section p {
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   특징 박스
-========================================================= */
-
-.feature-box {
-    padding: 20px;
-
+.section-number {
+    display: inline-grid;
+    width: 29px;
+    height: 29px;
+    flex: 0 0 29px;
+    place-items: center;
+    border-radius: 50%;
     background: var(--sub-color);
-
-    border-radius: 12px;
-
-    line-height: 1.8;
+    color: var(--main-color);
+    font-size: 11px;
+    font-weight: 700;
 }
 
+.section-heading h2 {
+    font-size: 18px;
+}
 
-/* =========================================================
-   모바일
-========================================================= */
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
 
-@media (max-width: 700px) {
+.detail-card,
+.text-panel {
+    padding: 17px 19px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--soft-accent-color);
+}
 
+.detail-card h3 {
+    margin-bottom: 5px;
+    color: var(--main-color);
+    font-size: 13px;
+}
+
+.detail-card p,
+.text-panel p {
+    color: var(--sub-text-color);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.tag {
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: var(--sub-color);
+    color: var(--main-color);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ==============================
+   좋아하는 것과 싫어하는 것
+============================== */
+
+.likes-dislikes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.list-panel ul {
+    padding-left: 18px;
+    color: var(--sub-text-color);
+    font-size: 13px;
+}
+
+.list-panel li + li {
+    margin-top: 5px;
+}
+
+.profile-footer {
+    padding-top: 24px;
+    color: #aaa6b4;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* ==============================
+   작은 화면
+============================== */
+
+@media (max-width: 680px) {
     body {
-        padding: 20px 10px;
+        padding: 20px 12px;
     }
 
-    .profile-container {
-        padding: 30px 20px;
+    .profile-card {
+        padding: 35px 22px 25px;
+        border-radius: 17px;
+    }
+
+    .profile-title {
+        margin-bottom: 30px;
+    }
+
+    .profile-title h1 {
+        font-size: 25px;
     }
 
     .profile-header {
         grid-template-columns: 1fr;
-
-        text-align: center;
+        gap: 25px;
     }
 
-    .profile-image {
+    .portrait-column {
+        width: min(100%, 300px);
         margin: 0 auto;
     }
 
-    .info-grid {
-        grid-template-columns: 1fr;
+    .intro h2 {
+        font-size: 29px;
     }
 
-    .info-item {
-        text-align: left;
+    .detail-grid {
+        gap: 9px;
+    }
+
+    .detail-card {
+        padding: 14px;
+    }
+
+    .likes-dislikes {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    .basic-info {
+        gap: 0 12px;
+    }
+
+    .basic-info div {
+        grid-template-columns: 52px minmax(0, 1fr);
+    }
+
+    .detail-grid,
+    .likes-dislikes {
+        grid-template-columns: 1fr;
     }
 }
