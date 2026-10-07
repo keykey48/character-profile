@@ -1,248 +1,192 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-
     <meta charset="UTF-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        name="description"
+        content="캐릭터 프로필"
     >
-
-    <title>Character Profile</title>
-
+    <title>캐릭터 프로필</title>
     <link rel="stylesheet" href="style.css">
-
+    <script src="script.js" defer></script>
 </head>
-
-
 <body>
-
-    <main class="profile-container">
-
-
-        <!-- 제목 -->
-
+    <main class="profile-card">
         <header class="profile-title">
-
-            <h1>CHARACTER PROFILE</h1>
-
-            <p>CHARACTER INFORMATION</p>
-
+            <p class="eyebrow">CHARACTER PROFILE</p>
+            <h1>캐릭터 프로필</h1>
+            <p class="title-description">한 사람의 이야기를 소개합니다</p>
         </header>
 
-
-
-        <!-- 캐릭터 기본 -->
-
-        <section class="profile-header">
-
-
-            <!-- 프로필 사진 -->
-
-            <div class="profile-image">
-
-                <img
-                    src="https://placehold.co/260x340"
-                    alt="Profile Image"
-                >
-
-            </div>
-
-
-            <!-- 이름 + 기본 정보 -->
-
-            <div>
-
-                <div class="character-name">
-
-                    <h2>CHARACTER NAME</h2>
-
-                    <p>한마디 / 캐릭터의 대표 대사</p>
-
+        <section class="profile-header" aria-labelledby="character-name">
+            <div class="portrait-column">
+                <div class="profile-image">
+                    <img
+                        id="profilePreview"
+                        src="https://placehold.co/600x800/f0ecff/7668b5?text=Character+Photo"
+                        alt="캐릭터 프로필 사진"
+                    >
                 </div>
 
+                <label class="image-upload-button" for="profileImageInput">
+                    <span aria-hidden="true">＋</span>
+                    프로필 사진 선택
+                    <input
+                        type="file"
+                        id="profileImageInput"
+                        accept="image/*"
+                        hidden
+                    >
+                </label>
+                <p class="upload-help">이미지를 선택하면 이 브라우저에서 미리 볼 수 있어요.</p>
+            </div>
 
-                <div class="info-grid">
+            <div class="intro">
+                <p class="section-label">INTRODUCTION</p>
+                <h2 id="character-name">캐릭터 이름</h2>
+                <p class="catchphrase">“캐릭터를 잘 보여주는 한마디를 적어주세요.”</p>
 
-
-                    <div class="info-item">
-
-                        <span class="info-label">
-                            나이
-                        </span>
-
-                        <span class="info-value">
-                            00세
-                        </span>
-
+                <dl class="basic-info">
+                    <div>
+                        <dt>나이</dt>
+                        <dd>20세</dd>
                     </div>
-
-
-                    <div class="info-item">
-
-                        <span class="info-label">
-                            성별
-                        </span>
-
-                        <span class="info-value">
-                            ○○
-                        </span>
-
+                    <div>
+                        <dt>성별</dt>
+                        <dd>여성</dd>
                     </div>
-
-
-                    <div class="info-item">
-
-                        <span class="info-label">
-                            생일
-                        </span>
-
-                        <span class="info-value">
-                            00월 00일
-                        </span>
-
+                    <div>
+                        <dt>생일</dt>
+                        <dd>3월 14일</dd>
                     </div>
-
-
-                    <div class="info-item">
-
-                        <span class="info-label">
-                            MBTI
-                        </span>
-
-                        <span class="info-value">
-                            XXXX
-                        </span>
-
+                    <div>
+                        <dt>MBTI</dt>
+                        <dd>INFJ</dd>
                     </div>
-
-
-                    <div class="info-item">
-
-                        <span class="info-label">
-                            키
-                        </span>
-
-                        <span class="info-value">
-                            000cm
-                        </span>
-
+                    <div>
+                        <dt>키</dt>
+                        <dd>165cm</dd>
                     </div>
-
-
-                    <div class="info-item">
-
-                        <span class="info-label">
-                            직업
-                        </span>
-
-                        <span class="info-value">
-                            ○○
-                        </span>
-
+                    <div>
+                        <dt>직업</dt>
+                        <dd>학생</dd>
                     </div>
+                </dl>
+            </div>
+        </section>
 
+        <section class="profile-section" aria-labelledby="private-title">
+            <div class="section-heading">
+                <span class="section-number">01</span>
+                <h2 id="private-title">개인정보</h2>
+            </div>
+            <div class="detail-grid">
+                <article class="detail-card">
+                    <h3>이름</h3>
+                    <p>캐릭터의 본명이나 별명을 적어주세요.</p>
+                </article>
+                <article class="detail-card">
+                    <h3>소속</h3>
+                    <p>학교, 회사, 단체 등 소속을 적어주세요.</p>
+                </article>
+                <article class="detail-card">
+                    <h3>거주지</h3>
+                    <p>캐릭터가 살고 있는 곳을 적어주세요.</p>
+                </article>
+                <article class="detail-card">
+                    <h3>가족</h3>
+                    <p>가족이나 함께 지내는 사람을 적어주세요.</p>
+                </article>
+            </div>
+        </section>
 
+        <section class="profile-section" aria-labelledby="personality-title">
+            <div class="section-heading">
+                <span class="section-number">02</span>
+                <h2 id="personality-title">성격</h2>
+            </div>
+            <div class="text-panel">
+                <p>
+                    캐릭터의 성격과 행동 방식, 다른 사람을 대하는 태도를 적어주세요.
+                    평소에는 어떤 모습인지, 특별한 상황에서는 어떻게 달라지는지도
+                    소개할 수 있어요.
+                </p>
+                <div class="tag-list" aria-label="성격 키워드">
+                    <span class="tag">차분한</span>
+                    <span class="tag">호기심 많은</span>
+                    <span class="tag">다정한</span>
                 </div>
+            </div>
+        </section>
 
+        <section class="profile-section" aria-labelledby="appearance-title">
+            <div class="section-heading">
+                <span class="section-number">03</span>
+                <h2 id="appearance-title">외관 특징</h2>
+            </div>
+            <div class="detail-grid">
+                <article class="detail-card">
+                    <h3>머리</h3>
+                    <p>머리 모양, 색, 자주 하는 스타일을 적어주세요.</p>
+                </article>
+                <article class="detail-card">
+                    <h3>눈</h3>
+                    <p>눈 색이나 인상처럼 눈에 띄는 점을 적어주세요.</p>
+                </article>
+                <article class="detail-card">
+                    <h3>복장</h3>
+                    <p>즐겨 입는 옷이나 대표 의상을 적어주세요.</p>
+                </article>
+                <article class="detail-card">
+                    <h3>특징</h3>
+                    <p>점, 흉터, 액세서리 등 알아보기 쉬운 특징을 적어주세요.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="profile-section" aria-labelledby="important-title">
+            <div class="section-heading">
+                <span class="section-number">04</span>
+                <h2 id="important-title">중요한 특징</h2>
+            </div>
+            <div class="text-panel">
+                <p>
+                    캐릭터를 이해하는 데 중요한 능력, 습관, 과거의 사건이나
+                    현재의 목표를 적어주세요.
+                </p>
+            </div>
+        </section>
+
+        <section class="profile-section likes-dislikes">
+            <div class="list-panel" aria-labelledby="likes-title">
+                <div class="section-heading">
+                    <span class="section-number">05</span>
+                    <h2 id="likes-title">좋아하는 것</h2>
+                </div>
+                <ul>
+                    <li>좋아하는 음식</li>
+                    <li>좋아하는 장소</li>
+                    <li>좋아하는 취미</li>
+                </ul>
             </div>
 
-        </section>
-
-
-
-        <!-- 개인정보 -->
-
-        <section class="profile-section">
-
-            <h3>PERSONAL INFORMATION</h3>
-
-            <p>
-                캐릭터의 개인정보 및 기본적인 프로필을 입력하는 공간입니다.
-            </p>
-
-        </section>
-
-
-
-        <!-- 성격 -->
-
-        <section class="profile-section">
-
-            <h3>PERSONALITY</h3>
-
-            <p>
-                캐릭터의 성격을 입력하는 공간입니다.
-                평소의 행동 방식이나 가치관 등을 적어주세요.
-            </p>
-
-        </section>
-
-
-
-        <!-- 외관 특징 -->
-
-        <section class="profile-section">
-
-            <h3>APPEARANCE</h3>
-
-            <p>
-                머리카락, 눈, 복장, 체형 등
-                캐릭터의 외관 특징을 입력하는 공간입니다.
-            </p>
-
-        </section>
-
-
-
-        <!-- 중요한 특징 -->
-
-        <section class="profile-section">
-
-            <h3>IMPORTANT FEATURES</h3>
-
-            <div class="feature-box">
-
-                캐릭터의 중요한 특징이나 설정을 입력해주세요.
-
+            <div class="list-panel" aria-labelledby="dislikes-title">
+                <div class="section-heading">
+                    <span class="section-number">06</span>
+                    <h2 id="dislikes-title">싫어하는 것</h2>
+                </div>
+                <ul>
+                    <li>싫어하는 음식</li>
+                    <li>불편해하는 상황</li>
+                    <li>싫어하는 습관</li>
+                </ul>
             </div>
-
         </section>
 
-
-
-        <!-- 좋아하는 것 -->
-
-        <section class="profile-section">
-
-            <h3>LIKES</h3>
-
-            <p>
-                좋아하는 것들을 입력해주세요.
-            </p>
-
-        </section>
-
-
-
-        <!-- 싫어하는 것 -->
-
-        <section class="profile-section">
-
-            <h3>DISLIKES</h3>
-
-            <p>
-                싫어하는 것들을 입력해주세요.
-            </p>
-
-        </section>
-
-
+        <footer class="profile-footer">
+            <p>CHARACTER PROFILE</p>
+        </footer>
     </main>
-
-
 </body>
-
 </html>
